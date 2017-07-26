@@ -45,15 +45,15 @@ public class UploadFileController {
 		try{
 			if(file!=null && !file.isEmpty()) {
 				logger.info("/upload : " + file.getOriginalFilename());
-				UploadFileVO image = new UploadFileVO();
-				image.setDirectoryName(dir);
-				image.setFileName(file.getOriginalFilename());
-				image.setFileSize(file.getSize());
-				image.setFileContentType(file.getContentType());
-				image.setFileData(file.getBytes());
-				logger.info("/upload : " + image.toString());
+				UploadFileVO uploadFile = new UploadFileVO();
+				uploadFile.setDirectoryName(dir);
+				uploadFile.setFileName(file.getOriginalFilename());
+				uploadFile.setFileSize(file.getSize());
+				uploadFile.setFileContentType(file.getContentType());
+				uploadFile.setFileData(file.getBytes());
+				logger.info("/upload : " + uploadFile.toString());
 
-				imageService.uploadFile(image);
+				imageService.uploadFile(uploadFile);
 			}
 //			redirectAttrs.addFlashAttribute("dir", dir);
 		}catch(Exception e){
