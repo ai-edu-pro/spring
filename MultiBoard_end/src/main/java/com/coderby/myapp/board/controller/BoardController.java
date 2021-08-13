@@ -5,9 +5,10 @@ import java.util.List;
 
 import javax.servlet.http.HttpSession;
 
-import org.apache.log4j.Logger;
 import org.jsoup.Jsoup;
 import org.jsoup.safety.Whitelist;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
@@ -31,7 +32,7 @@ import com.coderby.myapp.board.service.IBoardService;
 
 @Controller
 public class BoardController {
-	static final Logger logger = Logger.getLogger(BoardController.class);
+	static final Logger logger = LoggerFactory.getLogger(BoardController.class);
 
 	@Autowired
 	IBoardService boardService;

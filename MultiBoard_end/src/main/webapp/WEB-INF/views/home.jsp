@@ -5,6 +5,31 @@
 <!DOCTYPE html>
 <html>
 <jsp:include page="/WEB-INF/views/include/staticFiles.jsp"/>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script type="text/javascript">
+$(function() {
+	var btn = $("input[value=Search]"); //input[type=button]
+	btn.click(function(event) {
+		$.ajax({
+			type: "GET",
+			url: "ajax/hr/" + $("input[name=empid]").val(),
+			success: function(result, status) {
+				$(".empname").text(result);
+			}
+		})
+	});
+	
+	$("input[name=empid]").keyup(function(event) {
+		$.ajax({
+			type: "GET",
+			url: "ajax/hr/" + $("input[name=empid]").val(),
+			success: function(result, status) {
+				$(".empname").text(result);
+			}
+		})
+	});
+});
+</script>
 <body>
 <jsp:include page="/WEB-INF/views/include/bodyHeader.jsp"/>
 <div class="container">
@@ -31,7 +56,11 @@
 					<a href="board/cat/1">카테고리 1번 게시판 리스트 보기</a><br>
 					<a href="board/cat/2">카테고리 2번 게시판 리스트 보기</a><br>
 					<a href="board/cat/3">카테고리 3번 게시판 리스트 보기</a><br>
-					</div>
+					<p>사원의 이름을 조회하려면 사원번호를 입력하세요.</p>
+					<p>사원번호 <input type="text" name="empid"> 
+						     <input type="button" value="Search"></p>
+					<p>조회한 사원의 이름 : <span class="empname"></span></p>
+				</div>
 				<div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">Curabitur
 					sed bibendum neque, at congue ipsum. Lorem ipsum dolor sit amet,
 					consectetur adipiscing elit. Vivamus mattis a mauris a volutpat. In
