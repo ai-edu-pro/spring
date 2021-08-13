@@ -1,20 +1,6 @@
-<%@page import="com.coderby.myapp.board.service.impl.BoardCategoryService"%>
-<%@page import="java.util.List"%>
-<%@page import="com.coderby.myapp.board.model.BoardCategory"%>
-<%@page import="com.coderby.myapp.board.service.IBoardCategoryService"%>
-<%@page import="org.springframework.web.context.support.WebApplicationContextUtils"%>
-<%@page import="org.springframework.web.context.WebApplicationContext"%>
 <%@page contentType="text/html; charset=UTF-8" trimDirectiveWhitespaces="true" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
-
-<%
-	//자료실 메뉴가 자동을 생성되도록 하기 위함
-	WebApplicationContext wac = WebApplicationContextUtils.getRequiredWebApplicationContext(application);
-	IBoardCategoryService categoryService = wac.getBean(BoardCategoryService.class);
-	List<BoardCategory> categoryList1 = categoryService.selectAllCategoryByClass1(1);
-	request.setAttribute("categoryList1", categoryList1);
-%>
 <fmt:setBundle basename="i18n/header" />
 <!-- HEADER -->
 <div class="container">
@@ -49,9 +35,9 @@
 				<li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown"><strong><fmt:message key="BOARD"/></strong></a>
                     <ul class="dropdown-menu">
-                    	<c:forEach var="category" items="${categoryList1}">
-				        <li><a href="<c:url value='/board/cat/${category.categoryId}'/>">${category.categoryName}</a>
-			        	</c:forEach>
+                    	<li><a href="/board/cat/1">게시판</a>
+			        	<li><a href="/board/cat/2">자료실</a>
+			        	<li><a href="/board/cat/3">겔러리</a>
 					</ul>
 				</li>
                 <li class="dropdown">

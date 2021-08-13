@@ -11,12 +11,12 @@
 	<div class="pg-opt">
         <div class="row">
             <div class="col-md-6 pc">
-                <h2>안녕하세요.</h2>
+                <h2>내용 제목</h2>
             </div>
             <div class="col-md-6">
                 <ol class="breadcrumb">
-                    <li>예제</li>
-                    <li class="active">hello</li>
+                    <li>경로 1</li>
+                    <li class="active">경로 2</li>
                 </ol>
             </div>
         </div>
